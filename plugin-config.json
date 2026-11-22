@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "latestVersion": "1.12.9",
+  "minVersion": "1.12.0",
+  "force": false,
+  "rolloutPercent": 100,
+  "downloadUrl": "https://github.com/Design-Hub-AH/designhub-releases/releases/download/v1.12.9/DesignHub-1.12.9.exe",
+  "releaseUrl": "https://github.com/Design-Hub-AH/designhub-releases/releases/tag/v1.12.9",
+  "updatesUrl": "https://raw.githubusercontent.com/Design-Hub-AH/designhub-releases/main/updates.json",
+  "notes": {
+    "ar": "إصدار 1.12.9",
+    "en": "Release 1.12.9"
+  }
+}
