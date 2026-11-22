@@ -1,9 +1,243 @@
-{
+import json
+
+# بيانات التحديثات
+updates_data = {
   "schema": 1,
+  "feedbackUrl": "https://designhub-api.ahmedd-hamed97.workers.dev/api/feedback",
   "latest": {
-    "version": "1.0.0",
-    "url": "https://github.com/aegeae52-ux/sehlawy-studio/releases/tag/v1.0.0",
-    "force": false,
-    "rollout": 100
-  }
+    "version": "1.12.5",
+    "url": "https://github.com/Design-Hub-AH/designhub-releases/releases/tag/v1.12.5",
+    "force": False,
+    "notes": {
+      "ar": "إصدار رسمي v1.12.5: نقل إعدادات الإضافة وتحديثاتها إلى خادم Design Hub الجديد. تحديث موقّع يتم تثبيته تلقائياً من داخل فوتوشوب.",
+      "en": "Official release v1.12.5: moves panel config and updates to the new Design Hub server. Signed update installs automatically inside Photoshop."
+    },
+    "auto": {
+      "cep": {
+        "manifest": "https://designhub-api.ahmedd-hamed97.workers.dev/api/updates/manifest"
+      }
+    }
+  },
+  "updates": [
+    {
+      "id": "v1-12-5",
+      "version": "1.12.5",
+      "date": "2026-11-20",
+      "url": "https://github.com/Design-Hub-AH/designhub-releases/releases/tag/v1.12.5",
+      "title": {
+        "ar": "تحديث Design Hub v1.12.5",
+        "en": "Design Hub Update v1.12.5"
+      },
+      "summary": {
+        "ar": "إصدار رسمي v1.12.5: نقل إعدادات الإضافة وتحديثاتها إلى خادم Design Hub الجديد. تحديث موقّع يتم تثبيته تلقائياً من داخل فوتوشوب.",
+        "en": "Official release v1.12.5: moves panel config and updates to the new Design Hub server. Signed update installs automatically inside Photoshop."
+      },
+      "features": [
+        {
+          "ar": "نقل إعدادات الإضافة وفحص التحديثات إلى خادم Design Hub الجديد",
+          "en": "Panel config and update checks moved to the new Design Hub server"
+        },
+        {
+          "ar": "التحديثات الموقّعة تُخدم الآن من الخادم مباشرة مع التحقق من التوقيع الرقمي قبل التثبيت",
+          "en": "Signed updates now served directly from the server with digital signature verification before install"
+        }
+      ],
+      "details": {
+        "ar": "لا يتغير أي شيء في طريقة استخدام الإضافة؛ هذا تحديث بنية تحتية يجهّز التحديثات المستقبلية، وهو متاح الآن لجميع المستخدمين.",
+        "en": "Nothing changes in how you use the panel; this is an infrastructure update that prepares future updates, and it is now available to everyone."
+      }
+    },
+    {
+      "id": "v1-12-4",
+      "version": "1.12.4",
+      "date": "2026-11-20",
+      "url": "https://github.com/Design-Hub-AH/designhub-releases/releases/latest",
+      "title": {
+        "ar": "تحديث Design Hub v1.12.4",
+        "en": "Design Hub Update v1.12.4"
+      },
+      "summary": {
+        "ar": "تحديث تلقائي للإضافة من الداخل مع توقيع رقمي للتحقق، وإعادة شريط تنبيه التحديث لنسخة UXP.",
+        "en": "Automatic in-plugin updates with digital signature verification, and the update notice bar restored for UXP."
+      },
+      "features": [
+        {
+          "ar": "تحديث تلقائي من داخل الإضافة: فحص دوري وتنزيل صامت للتحديثات مع التحقق من التوقيع الرقمي قبل التثبيت",
+          "en": "Automatic in-plugin updates: periodic checks and silent downloads with digital signature verification before install"
+        },
+        {
+          "ar": "إعادة إظهار شريط التنبيه بالتحديث الجديد في نسخة UXP",
+          "en": "Update notice bar restored in the UXP build"
+        },
+        {
+          "ar": "صفحة تحديثات تعرض سجل الإصدارات وحالة الإصدار الحالي",
+          "en": "Updates page showing release history and current version status"
+        }
+      ],
+      "details": {
+        "ar": "لا يتم تثبيت أي تحديث تلقائياً إلا بعد التحقق من توقيعه الرقمي، وعند فشل التحقق يظهر رابط التحميل اليدوي فقط.",
+        "en": "No update is installed unless its digital signature verifies; on any failure only the manual download link is shown."
+      }
+    },
+    {
+      "id": "v1-12-3",
+      "version": "1.12.3",
+      "date": "2026-11-20",
+      "url": "https://github.com/Design-Hub-AH/designhub-releases/releases/latest",
+      "title": {
+        "ar": "تحديث Design Hub v1.12.3",
+        "en": "Design Hub Update v1.12.3"
+      },
+      "summary": {
+        "ar": "إضافة استوديو تصميم المنتجات الإعلانية مع مساعد ذكي بالعربي ومعاينة ثلاثية الأبعاد.",
+        "en": "New Product Advertising Design studio with an Arabic design assistant and 3D preview."
+      },
+      "features": [
+        {
+          "ar": "إضافة أداة تصميم المنتجات (Product Design) داخل قائمة التصميم: حتى 6 تصاميم إعلانية مع فئات المنتجات والخلفيات والتأثيرات والظل والانعكاس",
+          "en": "Added Product Design studio to the Design menu: up to 6 advertising designs with product categories, backgrounds, effects, shadow and reflection"
+        },
+        {
+          "ar": "مساعد ذكي (Design Director) يفهم فكرتك بالعربي واللهجة المصرية ويضبط الإعدادات المناسبة تلقائياً",
+          "en": "Built-in Design Director understands your idea in Arabic and Egyptian dialect and applies the right settings automatically"
+        },
+        {
+          "ar": "معاينة ثلاثية الأبعاد للتصميم قبل إنشاء البرومبت",
+          "en": "3D preview of the design before generating the prompt"
+        }
+      ],
+      "details": {
+        "ar": "يعمل مساعد التصميم بالكامل داخل الإضافة دون إرسال أي بيانات إلى أي خدمة خارجية.",
+        "en": "The design assistant runs entirely inside the plugin without sending any data to external services."
+      }
+    },
+    {
+      "id": "v1-12-2",
+      "version": "1.12.2",
+      "date": "2026-11-04",
+      "url": "https://github.com/Design-Hub-AH/designhub-releases/releases/latest",
+      "title": {
+        "ar": "تحديث Design Hub v1.12.2",
+        "en": "Design Hub Update v1.12.2"
+      },
+      "summary": {
+        "ar": "إضافة باقة شراء البرنامج للأبد، وتصميم الباقات والعروض، وتحسينات الواجهة والتقييمات.",
+        "en": "Added Lifetime License, dynamic promotional discounts, UI alignment improvements, and feedback service."
+      },
+      "features": [
+        {
+          "ar": "إضافة خيار شراء البرنامج للأبد بترخيص دائم بدون انتهاء لجهاز واحد",
+          "en": "Added Lifetime License option with perpetual validity for 1 device"
+        },
+        {
+          "ar": "عرض العروض والخصومات تلقائياً مع شطب السعر القديم وإظهار نسبة الخصم",
+          "en": "Dynamic promotional offers with strikethrough original prices and discount badges"
+        },
+        {
+          "ar": "تفعيل خدمة إرسال التقييمات والاقتراحات مباشرة من داخل البلاجن",
+          "en": "Enabled customer feedback and suggestions submission directly from within the plugin"
+        }
+      ],
+      "fixes": [
+        {
+          "ar": "تحسين مسافات ومحاذاة نصوص تسجيل الدخول وإنشاء الحساب في الواجهة العربية",
+          "en": "Adjusted RTL right padding for login and registration screens"
+        },
+        {
+          "ar": "تنظيم شاشة التحديثات لإظهار حالة الإصدار وزر التحديث الرسمي فقط",
+          "en": "Cleaned up updates interface to show latest version status and official release button"
+        }
+      ],
+      "details": {
+        "ar": "يجمع هذا الإصدار كافة التحسينات البصرية والوظيفية المطلوبة مع الدعم الكامل لجميع إصدارات فوتوشوب CC 2018 وحتى 2026+.",
+        "en": "Combines all visual and functional enhancements with complete support across Photoshop CC 2018 - 2026+."
+      }
+    },
+    {
+      "id": "v1-12-1",
+      "version": "1.12.1",
+      "date": "2026-11-03",
+      "url": "https://github.com/Design-Hub-AH/designhub-releases/releases/latest",
+      "title": {
+        "ar": "تحديث Design Hub v1.12.1",
+        "en": "Design Hub Update v1.12.1"
+      },
+      "summary": {
+        "ar": "إصلاح حقل وطول كود التفعيل وإظهار التنبيهات الفورية للمستخدم.",
+        "en": "Activation code length fix and immediate feedback notifications."
+      },
+      "features": [
+        {
+          "ar": "دعم استخراج وتنسيق كود التفعيل تلقائياً عند اللصق أو الإدخال",
+          "en": "Automatic extraction and normalization of activation codes upon paste or typing"
+        },
+        {
+          "ar": "تفعيل الضغط على زر Enter في لوحة المفاتيح لتأكيد التفعيل فوراً",
+          "en": "Enable Enter key submission for instant activation"
+        }
+      ],
+      "fixes": [
+        {
+          "ar": "حل مشكلة قص الحرف الأخير في أكواد التفعيل (زيادة الحد الأقصى إلى 32 حرفاً)",
+          "en": "Fixed 25th character truncation by expanding input maxlength to 32"
+        },
+        {
+          "ar": "إظهار Messages الخطأ والنجاح الفورية (Toast وتحديد الحقل) أسفل خانة الإدخال مباشرة",
+          "en": "Immediate visual error and success banners directly under the activation input"
+        }
+      ],
+      "details": {
+        "ar": "يعالج هذا التحديث العطل الذي كان يواجهه العملاء عند تفعيل الأكواد الجديدة، حيث أصبح الحقل يستقبل الكود كاملاً ويقدم استجابة وتغذية بصرية فورية.",
+        "en": "Resolves activation input truncation and provides clear, immediate feedback for customer redemptions."
+      }
+    },
+    {
+      "id": "v1-12-0",
+      "version": "1.12.0",
+      "date": "2026-11-03",
+      "url": "https://github.com/Design-Hub-AH/designhub-releases/releases/latest",
+      "title": {
+        "ar": "تحديث Design Hub v1.12.0",
+        "en": "Design Hub Update v1.12.0"
+      },
+      "summary": {
+        "ar": "تحديث شامل لتسجيل الدخول وتوحيد الباقات على جهاز واحد وتثبيت الإضافات.",
+        "en": "Comprehensive update for user authentication, single-device plans, and installer setup."
+      },
+      "features": [
+        {
+          "ar": "دعم كامل وموحد لإصدارات فوتوشوب CC 2018 وحتى 2026+ (تقنيتي CEP و UXP)",
+          "en": "Unified support for Adobe Photoshop CC 2018 up to 2026+ (CEP & UXP engines)"
+        },
+        {
+          "ar": "نظام تسجيل وإنشاء حسابات متكامل مع التحقق المباشر من الحقول وحفظ الجلسات المشفرة",
+          "en": "Complete registration and account system with instant validation and encrypted session storage"
+        },
+        {
+          "ar": "مثبت شامل يثبت الإضافة بضغطة واحدة دون الحاجة لصلاحيات Administrator",
+          "en": "Universal one-click installer without requiring Administrator permissions"
+        }
+      ],
+      "fixes": [
+        {
+          "ar": "توحيد جميع باقات الاشتراك لتكون جهاز واحد فقط مع فرض ذلك من السيرفر",
+          "en": "Enforced single-device limit across all subscription plans"
+        },
+        {
+          "ar": "تحديث وتفعيل رقم واتساب المعتمد للتواصل مع الدعم الفني للأدمن",
+          "en": "Updated admin technical support WhatsApp contact"
+        }
+      ],
+      "details": {
+        "ar": "يتضمن هذا الإصدار تحسينات جذرية في الأداء وسرعة فتح الإضافة وثبات استعادة الجلسات التلقائية عند إعادة تشغيل فوتوشوب.",
+        "en": "This release includes significant performance improvements, faster startup, and reliable session persistence."
+      }
+    }
+  ]
 }
+
+# تحويل البيانات إلى ملف JSON
+with open('updates.json', 'w', encoding='utf-8') as f:
+    json.dump(updates_data, f, ensure_ascii=False, indent=4)
+
+print("تم إنشاء ملف updates.json بنجاح!")
